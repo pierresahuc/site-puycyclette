@@ -14,7 +14,9 @@
         }) }}
     {% endblock %}
 
-    {% block style %}{% endblock %}
+    {% block style %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 </head>
 <body>
     <header>
@@ -51,7 +53,8 @@
         {% endblock %}
     </footer>
 
-    {% block javascripts %}{% endblock %}
-            {{ encore_entry_script_tags('app') }}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
 </body>
 </html>
