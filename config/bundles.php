@@ -48,4 +48,6 @@ return [
     ONGR\ElasticsearchBundle\ONGRElasticsearchBundle::class => ['all' => true],
     Sulu\Bundle\ArticleBundle\SuluArticleBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    Sylius\Bundle\ThemeBundle\SyliusThemeBundle::class => ['all' => true],
+    Sulu\Bundle\ThemeBundle\SuluThemeBundle::class => ['all' => true],
 ];

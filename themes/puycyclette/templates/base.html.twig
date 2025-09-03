@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|split('_')[0] }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('build/website/tailwind.css') }}">
+
+    {% block meta %}
+        {{ include('@SuluWebsite/Extension/seo.html.twig', {
+            seo: extension.seo|default([]),
+            content: content|default([]),
+            localizations: localizations|default([]),
+            shadowBaseLocale: shadowBaseLocale|default(),
+        }) }}
+    {% endblock %}
+
+    {% block style %}
+        {{ encore_entry_link_tags('animatecss') }}
+        {{ encore_entry_link_tags('swipercss') }}
+{#        {{ encore_entry_link_tags('tailwindcss') }}#}
+{#        {{ encore_entry_link_tags('inputcss') }}#}
+    {% endblock %}
+</head>
+<body>
+
+{#    <header>#}
+{#        {% block header %}#}
+{#            <nav>#}
+{#                <ul>#}
+{#                    <li>#}
+{#                        <a href="{{ sulu_content_root_path() }}">Homepage</a>#}
+{#                    </li>#}
+
+{#                    {% for item in sulu_navigation_root_tree('main') %}#}
+{#                        <li>#}
+{#                            <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"#}
+{#                               title="{{ item.title }}">{{ item.title }}</a>#}
+{#                        </li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{#            </nav>#}
+{#        {% endblock %}#}
+{#    </header>#}
+
+{#    <form action="{{ path('sulu_search.website_search') }}" method="GET">#}
+{#        <input name="q" type="text" placeholder="Search"/>#}
+{#        <input type="submit" value="Go"/>#}
+{#    </form>#}
+
+{#    <main>#}
+{#        {% block content %}{% endblock %}#}
+{#    </main>#}
+
+{#    <footer>#}
+{#        {% block footer %}#}
+{#            <p>Copyright {{ 'now'|date('Y') }} SULU</p>#}
+{#        {% endblock %}#}
+{#    </footer>#}
+{% include 'partials/_navbar.html.twig' %}
+{% include 'partials/_hero.html.twig' %}
+{% include 'partials/_about.html.twig' %}
+{% include 'partials/_contact.html.twig' %}
+{% include 'partials/_footer.html.twig' %}
+
+<!-- ====== Back To Top Start -->
+<a
+    href="javascript:void(0)"
+    class="fixed left-auto items-center justify-center hidden w-10 h-10 text-white transition duration-300 ease-in-out rounded-md shadow-md back-to-top bottom-8 right-8 z-999 bg-primary hover:bg-dark"
+>
+      <span
+          class="mt-[6px] h-3 w-3 rotate-45 border-l border-t border-white"
+      ></span>
+</a>
+<!-- ====== Back To Top End -->
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('wowjs') }}
+        {{ encore_entry_script_tags('mainjs') }}
+        {{ encore_entry_script_tags('swiperjs') }}
+    {% endblock %}
+</body>
+</html>

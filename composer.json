@@ -42,6 +42,7 @@
         "stof/doctrine-extensions-bundle": "^1.11",
         "sulu/article-bundle": "^2.6",
         "sulu/sulu": "~2.6.11",
+        "sulu/theme-bundle": "^3.1",
         "symfony/config": "^7.3",
         "symfony/dotenv": "^7.3",
         "symfony/flex": "^1.17 || ^2.0",
