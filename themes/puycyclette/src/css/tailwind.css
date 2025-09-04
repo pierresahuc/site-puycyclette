@@ -63,7 +63,8 @@
     --color-dark-2: #1f2a37;
     --color-dark-3: #374151;
     --color-dark-6: #9ca3af;
-    --color-primary: #3758f9;
+    /*--color-primary: #3758f9;*/
+      --color-primary: #D0A530;
     --color-blue-dark: #1b44c8;
     --color-secondary: #13c296;
     --color-body-color: #637381;

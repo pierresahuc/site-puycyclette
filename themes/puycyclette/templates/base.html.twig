@@ -24,43 +24,15 @@
 </head>
 <body>
 
-{#    <header>#}
-{#        {% block header %}#}
-{#            <nav>#}
-{#                <ul>#}
-{#                    <li>#}
-{#                        <a href="{{ sulu_content_root_path() }}">Homepage</a>#}
-{#                    </li>#}
+    <header>
+        {% block header %}
+            {% include 'partials/_navbar.html.twig' %}
+        {% endblock %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-{#                    {% for item in sulu_navigation_root_tree('main') %}#}
-{#                        <li>#}
-{#                            <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"#}
-{#                               title="{{ item.title }}">{{ item.title }}</a>#}
-{#                        </li>#}
-{#                    {% endfor %}#}
-{#                </ul>#}
-{#            </nav>#}
-{#        {% endblock %}#}
-{#    </header>#}
-
-{#    <form action="{{ path('sulu_search.website_search') }}" method="GET">#}
-{#        <input name="q" type="text" placeholder="Search"/>#}
-{#        <input type="submit" value="Go"/>#}
-{#    </form>#}
-
-{#    <main>#}
-{#        {% block content %}{% endblock %}#}
-{#    </main>#}
-
-{#    <footer>#}
-{#        {% block footer %}#}
-{#            <p>Copyright {{ 'now'|date('Y') }} SULU</p>#}
-{#        {% endblock %}#}
-{#    </footer>#}
-{% include 'partials/_navbar.html.twig' %}
-{% include 'partials/_hero.html.twig' %}
-{% include 'partials/_about.html.twig' %}
-{% include 'partials/_contact.html.twig' %}
 {% include 'partials/_footer.html.twig' %}
 
 <!-- ====== Back To Top Start -->

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% include 'partials/_hero.html.twig' %}
+    {% include 'partials/_about.html.twig' %}
+    {% include 'partials/_contact.html.twig' %}
+
+    {{ content.article|raw }}
+
+{% endblock %}
