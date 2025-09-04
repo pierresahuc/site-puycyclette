@@ -42,5 +42,17 @@
                 <title lang="de">Artikel</title>
             </meta>
         </property>
+
+        <!-- Image de une -->
+        <property name="hero_image" type="media_selection" >
+            <meta>
+                <title lang="en">Hero Image</title>
+                <title lang="fr">Image de une</title>
+            </meta>
+            <params>
+                <param name="types" value="image"/>
+                <param name="max" value="1"/>
+            </params>
+        </property>
     </properties>
 </template>
