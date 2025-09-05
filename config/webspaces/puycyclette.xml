@@ -28,6 +28,7 @@
         <template type="search">search/search</template>
         <!-- See: http://docs.sulu.io/en/latest/cookbook/custom-error-page.html how to create a custom error page -->
         <template type="error">error/error</template>
+        <template type="article">article</template>
     </templates>
 
     <theme>vendor/puycyclette</theme>

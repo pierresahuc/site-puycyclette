@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>{{ content.title }}</h1>
+
+    <ul>
+        {% for article in content.articles %}
+            <li>
+                <a href="{{ sulu_content_path(article.routePath) }}">
+                    {{ article.title }}
+                </a>
+                {% if article.excerptDescription is defined %}
+                    <p>{{ article.excerptDescription|raw }}</p>
+                {% endif %}
+            </li>
+        {% else %}
+            <li>Aucun article disponible.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,9 +1,6 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h1>{{ content.title }}</h1>
-
-    <div>
-        {{ content.article|default()|raw }}
-    </div>
+    {% include 'partials/_banner.html.twig' %}
+    {% include 'partials/_blog-details.html.twig' %}
 {% endblock %}
