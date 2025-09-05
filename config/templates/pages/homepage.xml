@@ -54,5 +54,136 @@
                 <param name="max" value="1"/>
             </params>
         </property>
+
+        <!-- Bloc Nos actions -->
+        <block name="actions" default-type="action_item" maxOccurs="4">
+            <meta>
+                <title lang="en">Our actions</title>
+                <title lang="fr">Nos actions</title>
+            </meta>
+            <types>
+                <type name="action_item">
+                    <meta>
+                        <title lang="en">Action</title>
+                        <title lang="fr">Action</title>
+                    </meta>
+                    <properties>
+                        <property name="title" type="text_line">
+                            <meta>
+                                <title lang="en">Title</title>
+                                <title lang="fr">Titre</title>
+                            </meta>
+                        </property>
+                        <property name="text" type="text_area">
+                            <meta>
+                                <title lang="en">Text</title>
+                                <title lang="fr">Texte</title>
+                            </meta>
+                        </property>
+                        <property name="link" type="single_page_selection">
+                            <meta>
+                                <title lang="en">Link</title>
+                                <title lang="fr">Lien</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+
+        <!-- Section Qui sommes-nous -->
+        <block name="about" default-type="about_section" minOccurs="0" maxOccurs="1">
+            <meta>
+                <title lang="en">About us</title>
+                <title lang="fr">Qui sommes-nous</title>
+            </meta>
+            <types>
+                <type name="about_section">
+                    <meta>
+                        <title lang="en">About Section</title>
+                        <title lang="fr">Bloc Qui sommes-nous</title>
+                    </meta>
+                    <properties>
+                        <property name="title" type="text_line">
+                            <meta>
+                                <title lang="en">Title</title>
+                                <title lang="fr">Titre</title>
+                            </meta>
+                        </property>
+                        <property name="text" type="text_area">
+                            <meta>
+                                <title lang="en">Text</title>
+                                <title lang="fr">Texte</title>
+                            </meta>
+                        </property>
+                        <property name="image" type="single_media_selection">
+                            <meta>
+                                <title lang="en">Image</title>
+                                <title lang="fr">Image</title>
+                            </meta>
+                            <params>
+                                <param name="types" value="image"/>
+                                <param name="max" value="1"/>
+                            </params>
+                        </property>
+                        <property name="link" type="single_page_selection">
+                            <meta>
+                                <title lang="en">Link</title>
+                                <title lang="fr">Lien</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+
+        <!-- Section Actus : 3 items (titre + texte + lien + image) -->
+        <block name="news" default-type="news_item" minOccurs="0" maxOccurs="3">
+            <meta>
+                <title lang="en">News</title>
+                <title lang="fr">Actualités</title>
+            </meta>
+            <types>
+                <type name="news_item">
+                    <meta>
+                        <title lang="en">News Item</title>
+                        <title lang="fr">Élément d’actualité</title>
+                    </meta>
+                    <properties>
+                        <property name="title" type="text_line">
+                            <meta>
+                                <title lang="en">Title</title>
+                                <title lang="fr">Titre</title>
+                            </meta>
+                        </property>
+                        <property name="text" type="text_area">
+                            <meta>
+                                <title lang="en">Text</title>
+                                <title lang="fr">Texte</title>
+                            </meta>
+                        </property>
+                        <property name="link" type="page_selection">
+                            <meta>
+                                <title lang="en">Link</title>
+                                <title lang="fr">Lien</title>
+                            </meta>
+                            <params>
+                                <param name="max" value="1"/>
+                            </params>
+                        </property>
+                        <property name="image" type="single_media_selection">
+                            <meta>
+                                <title lang="en">Image</title>
+                                <title lang="fr">Image</title>
+                            </meta>
+                            <params>
+                                <param name="types" value="image"/>
+                                <param name="max" value="1"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
     </properties>
 </template>
