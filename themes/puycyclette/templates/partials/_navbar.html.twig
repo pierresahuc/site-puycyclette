@@ -71,14 +71,36 @@
 </span>
                     </label>
                     <div class="hidden sm:flex">
-                        <a class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70"
-                           href="signin.html">
-                            Sign In
-                        </a>
-                        <a class="px-6 py-2 text-base font-medium text-white duration-300 ease-in-out rounded-md bg-white/20 signUpBtn hover:bg-white/100 hover:text-dark"
-                           href="signup.html">
-                            Sign Up
-                        </a>
+                        {% if app.user %}
+                            <a class="px-[22px] py-2 text-base font-medium text-white hover:opacity-70"
+                               href="{{ path('app_adherent') }}">
+                                Mon espace
+                            </a>
+
+                            <form action="{{ path('app_logout') }}" method="post">
+                                <button type="submit"
+                                        class="px-[22px] py-2 text-base font-medium text-white hover:opacity-70">
+                                    Logout
+                                </button>
+                            </form>
+                        {% else %}
+                            <a class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70"
+                               href="{{ path('app_login') }}">
+                                Sign In
+                            </a>
+                            <a class="px-6 py-2 text-base font-medium text-white duration-300 ease-in-out rounded-md bg-white/20 signUpBtn hover:bg-white/100 hover:text-dark"
+                               href="{{ path('app_register') }}">
+                                Sign Up
+                            </a>
+                        {% endif %}
+{#                        <a class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70"#}
+{#                           href="signin.html">#}
+{#                            Sign In#}
+{#                        </a>#}
+{#                        <a class="px-6 py-2 text-base font-medium text-white duration-300 ease-in-out rounded-md bg-white/20 signUpBtn hover:bg-white/100 hover:text-dark"#}
+{#                           href="signup.html">#}
+{#                            Sign Up#}
+{#                        </a>#}
                     </div>
                 </div>
             </div>
