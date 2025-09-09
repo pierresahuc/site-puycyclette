@@ -3,6 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+app_events_api:
+    type: rest
+    prefix: /admin/api
+    resource: App\Controller\Admin\EventController
+    name_prefix: app.
 
 #static:
 #    path: /static-route
