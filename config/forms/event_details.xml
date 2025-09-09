@@ -15,15 +15,21 @@
             </params>
         </property>
 
+        <property name="description" type="text_editor" mandatory="true" colspan="12">
+            <meta>
+                <title>sulu_admin.description</title>
+            </meta>
+        </property>
+
         <property name="startDate" type="date" mandatory="true" colspan="12">
             <meta>
-                <title>app.start_date</title>
+                <title>sulu_admin.start_date</title>
             </meta>
         </property>
 
         <property name="endDate" type="date" mandatory="true" colspan="12">
             <meta>
-                <title>app.end_date</title>
+                <title>sulu_admin.end_date</title>
             </meta>
         </property>
 
