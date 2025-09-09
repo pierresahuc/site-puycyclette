@@ -6,11 +6,6 @@
             title: (event.title)
         }
     } %}
-{#    <p>{{ event.description|raw }}</p>#}
-{#    <p>Lieu : {{ event.location }}</p>#}
-{#    <p>Du {{ event.startDate|date('d/m/Y H:i') }} au {{ event.endDate|date('d/m/Y H:i') }}</p>#}
-{#    <a href="{{ path('front_event_list') }}">Retour à la liste</a>#}
-
 
     <section class="bg-gray-1 pb-8 pt-20 dark:bg-dark-2 lg:pb-[70px] lg:pt-[120px]" id="event">
         <div class="container px-4 mx-auto">
@@ -41,6 +36,35 @@
                                     <p>Aucune description disponible pour cet événement.</p>
                                 {% endif %}
                             </div>
+
+                            {# Boutons d'inscription #}
+                            <div class="mb-6">
+                                {% if app.user %}
+                                    {% set registration = event.eventRegistrations|filter(r => r.user == app.user)|first %}
+
+                                    {% if registration %}
+                                        <p class="mb-4 text-green-600 font-semibold">
+                                            ✅ Vous êtes inscrit à cet événement (statut : {{ registration.status }})
+                                        </p>
+                                        <a href="{{ path('event_unregister', {id: event.id}) }}"
+                                           class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-red-600 rounded-md shadow hover:bg-red-700">
+                                            Se désinscrire
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ path('event_register', {id: event.id}) }}"
+                                           class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary rounded-md shadow hover:bg-blue-dark">
+                                            S'inscrire à l'événement
+                                        </a>
+                                    {% endif %}
+                                {% else %}
+                                    <p class="mb-4 text-gray-600">
+                                        <a href="{{ path('app_login') }}" class="text-primary underline">
+                                            Connectez-vous
+                                        </a> pour vous inscrire à cet événement.
+                                    </p>
+                                {% endif %}
+                            </div>
+
 
                             <a href="{{ path('front_event_list') }}"
                                class="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border rounded-md border-primary bg-primary px-7 hover:border-blue-dark hover:bg-blue-dark">

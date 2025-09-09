@@ -6,6 +6,8 @@ use App\Repository\EventRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Sulu\Component\Persistence\Model\AuditableInterface;
 use Sulu\Component\Persistence\Model\AuditableTrait;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 #[ORM\Table(name: 'app_event')]
@@ -34,6 +36,14 @@ class Event implements AuditableInterface
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $location = null;
+
+    #[ORM\OneToMany(mappedBy: "event", targetEntity: EventRegistration::class, cascade: ["persist", "remove"])]
+    private Collection $eventRegistrations;
+
+    public function __construct()
+    {
+        $this->eventRegistrations = new ArrayCollection();
+    }
 
     // --- getters / setters ---
 
@@ -95,5 +105,10 @@ class Event implements AuditableInterface
     {
         $this->location = $location;
         return $this;
+    }
+
+    public function getEventRegistrations(): Collection
+    {
+        return $this->eventRegistrations;
     }
 }
