@@ -6,7 +6,8 @@ on:
 jobs:
     php-cs-fixer:
         runs-on: ubuntu-latest
-
+        permissions:
+            contents: write   # ⬅ donne le droit de push
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
