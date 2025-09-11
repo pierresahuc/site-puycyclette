@@ -2,8 +2,7 @@
 name: Apply PHP CS Fixer
 on:
     push:
-        branches:
-            - develop
+        branches: [ "**"]
 jobs:
     php-cs-fixer:
         runs-on: ubuntu-latest
