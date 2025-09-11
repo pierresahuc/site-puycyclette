@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
 use App\Entity\Event;
+use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\View\View;
@@ -12,9 +15,8 @@ use Sulu\Component\Rest\ListBuilder\Metadata\FieldDescriptorFactoryInterface;
 use Sulu\Component\Rest\ListBuilder\PaginatedRepresentation;
 use Sulu\Component\Rest\RestHelperInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @RouteResource("event")
@@ -26,7 +28,7 @@ class EventController extends AbstractController implements ClassResourceInterfa
         private FieldDescriptorFactoryInterface $fieldDescriptorFactory,
         private DoctrineListBuilderFactoryInterface $listBuilderFactory,
         private RestHelperInterface $restHelper,
-        private EntityManagerInterface $em
+        private EntityManagerInterface $em,
     ) {
     }
 
@@ -41,7 +43,7 @@ class EventController extends AbstractController implements ClassResourceInterfa
             Event::RESOURCE_KEY,
             $listBuilder->getCurrentPage(),
             $listBuilder->getLimit(),
-            $listBuilder->count()
+            $listBuilder->count(),
         );
 
         return $this->viewHandler->handle(View::create($listRepresentation));

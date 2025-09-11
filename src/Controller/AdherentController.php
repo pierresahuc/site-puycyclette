@@ -1,6 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 // src/Controller/AdherentController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,4 +22,3 @@ class AdherentController extends AbstractController
         ]);
     }
 }
-

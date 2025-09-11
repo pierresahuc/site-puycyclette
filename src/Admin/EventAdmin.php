@@ -1,23 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Admin;
 
 use App\Entity\Event;
 use Sulu\Bundle\AdminBundle\Admin\Admin;
 use Sulu\Bundle\AdminBundle\Admin\Navigation\NavigationItem;
 use Sulu\Bundle\AdminBundle\Admin\Navigation\NavigationItemCollection;
-use Sulu\Bundle\AdminBundle\Admin\View\ViewCollection;
 use Sulu\Bundle\AdminBundle\Admin\View\ToolbarAction;
 use Sulu\Bundle\AdminBundle\Admin\View\ViewBuilderFactoryInterface;
+use Sulu\Bundle\AdminBundle\Admin\View\ViewCollection;
 
 class EventAdmin extends Admin
 {
-    const EVENT_FORM_KEY = 'event_details';
-    const EVENT_LIST_VIEW = 'app.events_list';
-    const EVENT_ADD_FORM_VIEW = 'app.event_add_form';
-    const EVENT_EDIT_FORM_VIEW = 'app.event_edit_form';
+    public const EVENT_FORM_KEY = 'event_details';
+    public const EVENT_LIST_VIEW = 'app.events_list';
+    public const EVENT_ADD_FORM_VIEW = 'app.event_add_form';
+    public const EVENT_EDIT_FORM_VIEW = 'app.event_edit_form';
 
-    public function __construct(private ViewBuilderFactoryInterface $viewBuilderFactory) {}
+    public function __construct(private ViewBuilderFactoryInterface $viewBuilderFactory)
+    {
+    }
 
     public function configureNavigationItems(NavigationItemCollection $navigationItemCollection): void
     {
