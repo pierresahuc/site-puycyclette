@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    {% include 'partials/_banner.html.twig' with {
+        content: {
+            title: 'Mon espace adhérent'
+        }
+    } %}
+
+    <section class="bg-gray-1 pb-8 pt-20 dark:bg-dark-2 lg:pb-[70px] lg:pt-[120px]" id="about">
+        <div class="container px-4 mx-auto">
+            <div class="wow fadeInUp" data-wow-delay=".2s">
+                <div class="flex flex-wrap items-center -mx-4">
+                    <div class="w-full px-4 lg:w-1/2 items-center">
+                        <div class="mb-12 max-w-[540px] lg:mb-0">
+                            <h2 class="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2]">
+                                {{ user.email }}
+                            </h2>
+                            {% if user.adhesionExpiresAt %}
+                                <p>Votre adhésion est valable jusqu’au {{ user.adhesionExpiresAt|date('d/m/Y') }}</p>
+                            {% else %}
+                                <p>Vous n’avez pas encore d’adhésion active.</p>
+
+                                <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/la-puycyclette/adhesions/adhesion-famille-2025/widget"
+                                        style="
+                                        width: 100%;
+                                        border: none;"
+                                        onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget');
+                                            haWidgetElement.height = dataHeight + 'px'; } )" >
+
+                                </iframe>
+{#                                {% include 'partials/_bouton-hello-asso.html.twig' %}#}
+
+{#                                <br/>#}
+{#                                <p class="mb-4">#}
+{#                                    Vous pouvez adhérer ou renouveler votre adhésion directement via HelloAsso :#}
+{#                                </p>#}
+
+{#                                <!-- Intégration HelloAsso -->#}
+{#                                <div id="ha-widget"></div>#}
+{#                                <script type="text/javascript" src="https://www.helloasso.com/assets/widgets/widget-v3.js"></script>#}
+{#                                <script type="text/javascript">#}
+{#                                    HelloAsso.Widget.render({#}
+{#                                        url: "https://www.helloasso.com/associations/la-puycyclette/adhesions/adhesion-2025",#}
+{#                                        target: "#ha-widget",#}
+{#                                        open: true,#}
+{#                                        iframe: true#}
+{#                                    });#}
+{#                                </script>#}
+                            {% endif %}
+                            <a href="#">Renouveler mon adhésion</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

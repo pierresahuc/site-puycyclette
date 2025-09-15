@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>articles_overview</key>
+    <view>pages/articles-overview</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>2400</cacheLifetime>
+
+    <meta>
+        <title lang="en">Articles overview</title>
+        <title lang="fr">Liste des actus</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="fr">Titre</title>
+            </meta>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="articles" type="smart_content">
+            <meta>
+                <title lang="fr">Articles</title>
+            </meta>
+            <params>
+                <param name="provider" value="articles"/>
+            </params>
+        </property>
+
+        <property name="url" type="resource_locator" mandatory="true">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+                <title lang="fr">Adresse</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+    </properties>
+</template>

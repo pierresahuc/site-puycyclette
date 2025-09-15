@@ -5,6 +5,10 @@ sulu_article:
     types:
         article:
             translation_key: "sulu_article.article"
+    default_main_webspace:
+        'puycyclette'
+    default_additional_webspaces:
+        - 'website'
 
 sulu_route:
     mappings:

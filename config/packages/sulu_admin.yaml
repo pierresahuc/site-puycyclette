@@ -6,6 +6,50 @@ sulu_admin:
     lists:
         directories:
             - "%kernel.project_dir%/config/lists"
+    resources:
+        events:
+            routes:
+                list: app.get_events
+                detail: app.get_event
+    field_type_options:
+        selection:
+            event_selection:
+                default_type: 'list_overlay'
+                resource_key: 'events'
+                view:
+                    name: 'app.event_edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'events'
+                        display_properties:
+                            - 'title'
+                        icon: 'su-calendar'
+                        label: 'app.events'
+                        overlay_title: 'app.events'
+        single_selection:
+            single_event_selection:
+                default_type: 'list_overlay'
+                resource_key: 'events'
+                view:
+                    name: 'app.event_edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'events'
+                        display_properties:
+                            - 'title'
+                        icon: 'su-calendar'
+                        empty_text: 'app.location.no_selections'
+                        overlay_title: 'app.locations'
+                    auto_complete:
+                        display_property: 'title'
+                        search_properties:
+                            - 'title'
 sulu_core:
     locales:
         en: English

@@ -30,6 +30,8 @@
         <template type="error">error/error</template>
     </templates>
 
+    <theme>vendor/puycyclette</theme>
+
     <navigation>
         <contexts>
             <context key="main">
@@ -64,7 +66,7 @@
                 </environment>
                 <environment type="dev">
                     <urls>
-                        <url language="en">{host}</url>
+                        <url language="en">website.localhost</url>
                     </urls>
                 </environment>
             </environments>
