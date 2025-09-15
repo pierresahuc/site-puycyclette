@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Sulu\Component\Persistence\Model\AuditableInterface;
 use Sulu\Component\Persistence\Model\AuditableTrait;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 #[ORM\Table(name: 'app_event')]
@@ -15,7 +17,7 @@ class Event implements AuditableInterface
 {
     use AuditableTrait;
 
-    const RESOURCE_KEY = 'events';
+    public const RESOURCE_KEY = 'events';
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -37,7 +39,7 @@ class Event implements AuditableInterface
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $location = null;
 
-    #[ORM\OneToMany(mappedBy: "event", targetEntity: EventRegistration::class, cascade: ["persist", "remove"])]
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: EventRegistration::class, cascade: ['persist', 'remove'])]
     private Collection $eventRegistrations;
 
     public function __construct()
@@ -60,6 +62,7 @@ class Event implements AuditableInterface
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -71,6 +74,7 @@ class Event implements AuditableInterface
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -82,6 +86,7 @@ class Event implements AuditableInterface
     public function setStartDate(\DateTimeInterface $startDate): self
     {
         $this->startDate = $startDate;
+
         return $this;
     }
 
@@ -93,6 +98,7 @@ class Event implements AuditableInterface
     public function setEndDate(\DateTimeInterface $endDate): self
     {
         $this->endDate = $endDate;
+
         return $this;
     }
 
@@ -104,6 +110,7 @@ class Event implements AuditableInterface
     public function setLocation(?string $location): self
     {
         $this->location = $location;
+
         return $this;
     }
 

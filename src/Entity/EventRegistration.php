@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\User;
-use App\Entity\Event;
 
 #[ORM\Entity]
 class EventRegistration
@@ -14,11 +14,11 @@ class EventRegistration
     #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: "eventRegistrations")]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'eventRegistrations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: "eventRegistrations")]
+    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'eventRegistrations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Event $event = null;
 

@@ -1,5 +1,8 @@
 <?php
+
+declare(strict_types=1);
 // src/Controller/SecurityController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

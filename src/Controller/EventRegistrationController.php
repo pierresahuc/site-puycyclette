@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\Event;
@@ -17,7 +19,7 @@ class EventRegistrationController extends AbstractController
         $user = $this->getUser();
 
         if (!$user) {
-            throw $this->createAccessDeniedException("Vous devez être connecté.");
+            throw $this->createAccessDeniedException('Vous devez être connecté.');
         }
 
         $existing = $em->getRepository(EventRegistration::class)->findOneBy([
@@ -27,6 +29,7 @@ class EventRegistrationController extends AbstractController
 
         if ($existing) {
             $this->addFlash('warning', 'Vous êtes déjà inscrit à cet événement.');
+
             return $this->redirectToRoute('front_event_show', ['id' => $event->getId()]);
         }
 
@@ -48,7 +51,7 @@ class EventRegistrationController extends AbstractController
         $user = $this->getUser();
 
         if (!$user) {
-            throw $this->createAccessDeniedException("Vous devez être connecté.");
+            throw $this->createAccessDeniedException('Vous devez être connecté.');
         }
 
         $registration = $em->getRepository(EventRegistration::class)->findOneBy([
@@ -58,6 +61,7 @@ class EventRegistrationController extends AbstractController
 
         if (!$registration) {
             $this->addFlash('warning', 'Vous n’êtes pas inscrit à cet événement.');
+
             return $this->redirectToRoute('front_event_show', ['id' => $event->getId()]);
         }
 
@@ -68,5 +72,4 @@ class EventRegistrationController extends AbstractController
 
         return $this->redirectToRoute('front_event_show', ['id' => $event->getId()]);
     }
-
 }
