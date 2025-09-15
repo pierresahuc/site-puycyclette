@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Deployer;
 
 require 'recipe/common.php';
@@ -51,32 +53,32 @@ task('deploy:assets', function () {
 // Migration SQL
 desc('Migrates SQL database');
 task('database:migrate:sql', function () {
-    run("cd {{release_or_current_path}} && {{bin/php}} bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration || true");
+    run('cd {{release_or_current_path}} && {{bin/php}} bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration || true');
 });
 
 // Migration PHPCR
 desc('Migrates PHPCR database');
 task('database:migrate:phpcr', function () {
-    run("cd {{release_or_current_path}} && {{bin/php}} bin/console phpcr:migrations:migrate --no-interaction --allow-no-migration || true");
+    run('cd {{release_or_current_path}} && {{bin/php}} bin/console phpcr:migrations:migrate --no-interaction --allow-no-migration || true');
 });
 
 // Installer les assets Symfony + Sulu
 desc('Install assets');
 task('sulu:assets', function () {
-    run("cd {{release_or_current_path}} && {{bin/php}} bin/console assets:install public --symlink --relative");
+    run('cd {{release_or_current_path}} && {{bin/php}} bin/console assets:install public --symlink --relative');
 });
 
 // Mettre à jour l’admin si custom
 desc('Update Sulu admin build');
 task('sulu:admin:update-build', function () {
-    run("cd {{release_or_current_path}} && {{bin/php}} bin/console sulu:admin:update-build");
+    run('cd {{release_or_current_path}} && {{bin/php}} bin/console sulu:admin:update-build');
 });
 
 // Clear et warmup du cache Symfony
 desc('Clears Symfony cache');
 task('deploy:cache:clear', function () {
-    run("cd {{release_or_current_path}} && {{bin/php}} bin/console cache:clear --no-warmup --env=prod");
-    run("cd {{release_or_current_path}} && {{bin/php}} bin/console cache:warmup --env=prod");
+    run('cd {{release_or_current_path}} && {{bin/php}} bin/console cache:clear --no-warmup --env=prod');
+    run('cd {{release_or_current_path}} && {{bin/php}} bin/console cache:warmup --env=prod');
 });
 
 // --- WORKFLOW DE DÉPLOIEMENT ---
@@ -88,7 +90,7 @@ task('deploy', [
     'database:migrate:phpcr',
     'deploy:cache:clear',
     'sulu:assets',
-    //'sulu:admin:update-build', // décommente si tu modifies l’admin
+    // 'sulu:admin:update-build', // décommente si tu modifies l’admin
     'deploy:assets',
     'deploy:publish',
 ]);
