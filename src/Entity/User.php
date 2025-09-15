@@ -1,12 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 // src/Entity/User.php
+
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
@@ -30,6 +35,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private bool $isVerified = false;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: EventRegistration::class, cascade: ['persist', 'remove'])]
+    private Collection $registrations;
+
+    public function __construct()
+    {
+        $this->registrations = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -43,6 +56,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -57,12 +71,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if (empty($roles)) {
             $roles[] = 'ROLE_ADHERENT';
         }
-        return array_unique($roles);
+
+        return \array_unique($roles);
     }
 
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
         return $this;
     }
 
@@ -74,6 +90,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
         return $this;
     }
 
@@ -91,6 +108,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAdhesionExpiresAt(?\DateTimeInterface $date): self
     {
         $this->adhesionExpiresAt = $date;
+
         return $this;
     }
 
@@ -105,5 +123,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-}
 
+    public function getRegistrations(): Collection
+    {
+        return $this->registrations;
+    }
+}
