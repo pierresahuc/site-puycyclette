@@ -1,3 +1,9 @@
+home_redirect:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+        path: /accueil
+        permanent: true
 controllers:
     resource:
         path: ../src/Controller/
