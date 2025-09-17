@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Accès restreint - Préproduction"
+AuthUserFile /home/puycyclette-sulu/.htpasswd
+Require valid-user
