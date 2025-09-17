@@ -41,8 +41,8 @@ class EventController extends AbstractController implements ClassResourceInterfa
         $listRepresentation = new PaginatedRepresentation(
             $listBuilder->execute(),
             Event::RESOURCE_KEY,
-            $listBuilder->getCurrentPage(),
-            $listBuilder->getLimit(),
+            (int) $listBuilder->getCurrentPage(),
+            (int) $listBuilder->getLimit(),
             $listBuilder->count(),
         );
 
