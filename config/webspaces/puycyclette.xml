@@ -52,7 +52,7 @@
             <environments>
                 <environment type="prod">
                     <urls>
-                        <url language="en">preprod.lapuycyclette.fr</url>
+                        <url language="fr">preprod.lapuycyclette.fr</url>
                     </urls>
                 </environment>
                 <environment type="stage">
