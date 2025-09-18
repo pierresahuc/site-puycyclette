@@ -583,6 +583,9 @@
   .w-\[330px\] {
     width: 330px;
   }
+    .w-\[340px\] {
+        width: 340px;
+    }
   .w-full {
     width: 100%;
   }
@@ -613,6 +616,9 @@
   .max-w-\[270px\] {
     max-width: 270px;
   }
+.max-w-\[280px\] {
+    max-width: 280px;
+}
   .max-w-\[370px\] {
     max-width: 370px;
   }
