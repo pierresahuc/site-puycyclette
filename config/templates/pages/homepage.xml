@@ -150,6 +150,11 @@
                         <title lang="fr">Élément d’actualité</title>
                     </meta>
                     <properties>
+                        <property name="date" type="date">
+                            <meta>
+                                <title lang="en">Date</title>
+                            </meta>
+                        </property>
                         <property name="title" type="text_line">
                             <meta>
                                 <title lang="en">Title</title>
