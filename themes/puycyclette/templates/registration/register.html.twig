@@ -40,15 +40,15 @@
                             {{ form_errors(registrationForm.plainPassword) }}
                         </div>
 
-                        <div class="mb-[22px] flex items-center">
-                            {{ form_widget(registrationForm.agreeTerms, {
-                                attr: { class: 'mr-2' }
-                            }) }}
-                            <label for="{{ registrationForm.agreeTerms.vars.id }}" class="text-sm text-body-color dark:text-dark-6">
-                                J’accepte les conditions générales
-                            </label>
-                            {{ form_errors(registrationForm.agreeTerms) }}
-                        </div>
+{#                        <div class="mb-[22px] flex items-center">#}
+{#                            {{ form_widget(registrationForm.agreeTerms, {#}
+{#                                attr: { class: 'mr-2' }#}
+{#                            }) }}#}
+{#                            <label for="{{ registrationForm.agreeTerms.vars.id }}" class="text-sm text-body-color dark:text-dark-6">#}
+{#                                J’accepte les conditions générales#}
+{#                            </label>#}
+{#                            {{ form_errors(registrationForm.agreeTerms) }}#}
+{#                        </div>#}
 
                         <div class="mb-9">
                             <button type="submit"
